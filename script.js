@@ -1,23 +1,23 @@
-<header class="hero">
-    <div class="tag">UNITY / AR·VR DEVELOPER</div>
+const reveals = document.querySelectorAll(".reveal");
 
-    <h1 class="name-main">ADARSH</h1>
-    <div class="name-glow">S</div>
+function revealOnScroll(){
 
-    <p class="subtitle">
-        Unity Developer specializing in AR/VR simulation, real-time interaction systems,
-        and performance-critical applications
-    </p>
+const windowHeight = window.innerHeight;
 
-    <div class="info">
-        <span>📍 Trivandrum, Kerala</span>
-        <span>✉️ adarshspillai65@gmail.com</span>
-    </div>
+reveals.forEach(section=>{
 
-    <div class="buttons">
-        <a href="#projects" class="btn cyan">VIEW PROJECTS</a>
-        <a href="#contact" class="btn pink">GET IN TOUCH</a>
-    </div>
+const top = section.getBoundingClientRect().top;
 
-    <div class="scroll">↓</div>
-</header>
+if(top < windowHeight - 120){
+
+section.classList.add("active");
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll",revealOnScroll);
+
+revealOnScroll();
